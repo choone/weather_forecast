@@ -14,7 +14,7 @@ if place:
         filtered_data = get_data(place, days)
 
         if option == "Temperature":
-            temperatures = [dict["main"]["temp"]/10 for dict in filtered_data]
+            temperatures = [dict["main"]["temp"]-273.15 for dict in filtered_data]
             dates = [dict["dt_txt"] for dict in filtered_data]
             figure = px.line(x=dates, y=temperatures,
                          labels={"x": "dates", "y": "temperatures (C)"})
